@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <script>
+    // Redirect before the page paints if nobody is logged in.
+    if (!localStorage.getItem("currentUser") && !sessionStorage.getItem("currentUser")) {
+      location.replace("index.html");
+    }
+  </script>
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand"><div class="brand-logo">A</div> AppName</div>
+      <ul class="nav">
+        <li><a href="#" class="active">🏠 Dashboard</a></li>
+        <li><a href="#">📊 Analytics</a></li>
+        <li><a href="#">🧾 Orders</a></li>
+        <li><a href="#">👥 Customers</a></li>
+        <li><a href="#">⚙️ Settings</a></li>
+      </ul>
+    </aside>
+
+    <div class="main">
+      <header class="topbar">
+        <button class="menu-btn" id="menuBtn" aria-label="Toggle menu">☰</button>
+        <div></div>
+        <div class="user-box">
+          <span class="user-name" id="userName"></span>
+          <div class="avatar" id="avatar"></div>
+          <button class="btn btn-outline" id="logoutBtn">Log out</button>
+        </div>
+      </header>
+
+      <section class="content">
+        <h1 id="greeting">Hello</h1>
+        <p class="subtitle">Here's what's happening with your account today.</p>
+
+        <div class="stats">
+          <div class="card">
+            <div class="stat-label">Total Revenue</div>
+            <div class="stat-value">₹4,52,300</div>
+            <div class="stat-change up">▲ 12.5% from last month</div>
+          </div>
+          <div class="card">
+            <div class="stat-label">Orders</div>
+            <div class="stat-value">1,284</div>
+            <div class="stat-change up">▲ 8.1% from last month</div>
+          </div>
+          <div class="card">
+            <div class="stat-label">New Customers</div>
+            <div class="stat-value">326</div>
+            <div class="stat-change down">▼ 2.4% from last month</div>
+          </div>
+          <div class="card">
+            <div class="stat-label">Conversion Rate</div>
+            <div class="stat-value">3.8%</div>
+            <div class="stat-change up">▲ 0.6% from last month</div>
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <div class="card">
+            <h2>Monthly Sales</h2>
+            <div class="chart" id="chart"></div>
+          </div>
+          <div class="card">
+            <h2>Recent Activity</h2>
+            <ul class="activity" id="activity"></ul>
+          </div>
+        </div>
+
+        <div class="card mt">
+          <h2>Recent Orders</h2>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr><th>Order ID</th><th>Customer</th><th>Date</th><th>Amount</th><th>Status</th></tr>
+              </thead>
+              <tbody id="ordersBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

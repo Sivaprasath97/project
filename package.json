@@ -1,0 +1,23 @@
+{
+  "name": "auth-dashboard",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Login, register and dashboard pages built with HTML, CSS and JS",
+  "scripts": {
+    "lint:html": "htmlhint \"*.html\"",
+    "lint:css": "stylelint \"css/**/*.css\"",
+    "lint:js": "eslint js",
+    "lint": "npm run lint:html && npm run lint:css && npm run lint:js",
+    "test": "node tests/smoke.test.mjs",
+    "build": "node scripts/build.mjs",
+    "ci": "npm run lint && npm test && npm run build"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.15.0",
+    "globals": "^17.14.0",
+    "htmlhint": "^1.9.2",
+    "stylelint": "^18.1.0",
+    "stylelint-config-recommended": "^19.1.0"
+  }
+}
